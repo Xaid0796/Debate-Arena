@@ -306,8 +306,8 @@ export default function SettingsPage() {
             )}
 
             {/* Navigation Tabs */}
-            <div className="bg-card border border-card-border rounded-xl overflow-hidden">
-                <nav className="flex gap-1 p-1 overflow-x-auto scroll-x-mobile sm:flex-wrap" role="tablist" aria-label="Settings sections">
+            <div className="bg-card border border-card-border rounded-xl p-1.5 sm:p-2">
+                <nav className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5" role="tablist" aria-label="Settings sections">
                     {[
                         { id: 'providers', label: 'Providers', icon: Server, desc: 'Enable/disable LLM providers' },
                         { id: 'api-keys', label: 'API Keys', icon: Key, desc: 'Configure API keys for each provider' },
@@ -321,13 +321,13 @@ export default function SettingsPage() {
                             role="tab"
                             aria-selected={activeSection === id}
                             onClick={() => setActiveSection(id as ActiveSection)}
-                            className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg transition-all whitespace-nowrap flex-shrink-0 ${activeSection === id
+                            className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg transition-all flex-1 sm:flex-initial justify-center sm:justify-start ${activeSection === id
                                 ? 'bg-accent-pro/10 text-accent-pro'
                                 : 'text-muted hover:text-foreground hover:bg-card-border'
                                 }`}
                         >
-                            <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
-                            <span className="font-medium text-sm sm:text-base">{label}</span>
+                            <Icon className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                            <span className="font-medium text-xs sm:text-base truncate">{label}</span>
                             <span className="text-xs text-muted hidden lg:block">{desc}</span>
                         </button>
                     ))}
